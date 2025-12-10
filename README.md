@@ -15,7 +15,45 @@ MobileNet-V2 Training + Compression (Quantization) on CIFAR-10
 - `README.md` — This documentation
 
 ---
-Execute
+
+Question 5(b) – README and exact commands
+
+In the README I wrote down the exact steps needed to reproduce my results from a clean environment:
+
+Setup
+
+git clone <repo-url>
+cd <repo-folder>
+pip install -r requirements.txt
+
+
+Train FP32 baseline (Q1)
+
+python train_baseline.py
+
+
+This trains MobileNet-V2 on CIFAR-10 for 30 epochs, plots the train/val accuracy curves, and saves the checkpoint to checkpoints/baseline_fp32.pt.
+
+Evaluate FP32 baseline accuracy
+
+python test.py --weight_quant_bits 32 --activation_quant_bits 32
+
+
+Run a single compressed configuration (Q2/Q4)
+Example: 4-bit weights, 8-bit activations:
+
+python test.py --weight_quant_bits 4 --activation_quant_bits 8
+
+
+Run the 8-run sweep used in Q3
+(I expose this as a flag / function in the script):
+
+python test.py --run_q3_sweep 1
+
+
+This command reuses the baseline checkpoint, runs the 8 (wbits, abits) combinations, logs to WandB, and prints the table of compression_ratio, model_size_mb, and quantized_acc used in Q
+
+Also can execute for 8-bit weights and 8-bit activations
 
 !python test.py --weight_quant_bits 8 --activation_quant_bits 8
 
