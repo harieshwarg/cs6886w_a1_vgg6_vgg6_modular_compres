@@ -16,6 +16,20 @@ MobileNet-V2 Training + Compression (Quantization) on CIFAR-10
 
 ---
 
+Seed Configuration
+
+All runs use a fixed seed for reproducibility.
+In seed_utils.py:
+
+def set_seed(seed=42):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.benchmark = True
+
+
+
 Question 5(b) – README and exact commands
 
 In the README I wrote down the exact steps needed to reproduce my results from a clean environment:
