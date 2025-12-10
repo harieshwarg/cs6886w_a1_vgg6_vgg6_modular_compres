@@ -69,5 +69,5 @@ This command reuses the baseline checkpoint, runs the 8 (wbits, abits) combinati
 
 Also can execute for 8-bit weights and 8-bit activations
 
-!python test.py --weight_quant_bits 8 --activation_quant_bits 8
+python test.py --weight_quant_bits 8 --activation_quant_bits 8
 
