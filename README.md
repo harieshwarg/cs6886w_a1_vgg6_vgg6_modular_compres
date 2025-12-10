@@ -32,9 +32,15 @@ def set_seed(seed=42):
 
 Question 5(b) – README and exact commands
 
-In the README I wrote down the exact steps needed to reproduce my results from a clean environment:
+Have uploased the trained baseline in checkpoints can directly use that and run this command 
 
-Setup
+python test.py --weight_quant_bits 8 --activation_quant_bits 8
+
+
+
+Below are the steps which can be done from beginning in case:
+
+Setup:
 
 git clone <repo-url>
 cd <repo-folder>
@@ -69,5 +75,5 @@ This command reuses the baseline checkpoint, runs the 8 (wbits, abits) combinati
 
 Also can execute for 8-bit weights and 8-bit activations
 
-python test.py --weight_quant_bits 8 --activation_quant_bits 8
+
 
